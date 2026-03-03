@@ -6,6 +6,14 @@
 //
 
 import SwiftUI
+import UIKit
+
+struct HapticManager {
+    static func lightImpact() {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
+    }
+}
 
 struct CalculatorButtonView: View {
     let title: String
@@ -23,7 +31,10 @@ struct CalculatorButtonView: View {
     }
     
     var body: some View {
-        Button(action: action){
+        Button(action: {
+            HapticManager.lightImpact()
+            action()
+        }){
             Text(title)
                 .font(.system(size: 32, weight: .medium))
                 .foregroundStyle(textColor)
@@ -32,6 +43,16 @@ struct CalculatorButtonView: View {
                 .cornerRadius(40)
                 .padding(isWide ? 4 : 8)
         }
+        .buttonStyle(CalculatorButtonStyle())
+    }
+}
+
+struct CalculatorButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+            .opacity(configuration.isPressed ? 0.9 : 1.0)
+            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
     }
 }
 

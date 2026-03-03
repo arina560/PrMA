@@ -6,13 +6,34 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		87A46A3F2F4C99E60053385A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87A46A3E2F4C99E60053385A /* GoogleService-Info.plist */; };
+		87A46A422F4C9B580053385A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 87A46A412F4C9B580053385A /* FirebaseFirestore */; };
+		87A46A442F4C9B580053385A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 87A46A432F4C9B580053385A /* FirebaseMessaging */; };
+		87A46A462F4C9B580053385A /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 87A46A452F4C9B580053385A /* FirebaseRemoteConfig */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		879433552F37AB280084A2DD /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87A46A3E2F4C99E60053385A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		875191C02F5726A30075BDFF /* Exceptions for "Calculator" folder in "Calculator" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 879433542F37AB280084A2DD /* Calculator */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		879433572F37AB280084A2DD /* Calculator */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				875191C02F5726A30075BDFF /* Exceptions for "Calculator" folder in "Calculator" target */,
+			);
 			path = Calculator;
 			sourceTree = "<group>";
 		};
@@ -23,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A46A462F4C9B580053385A /* FirebaseRemoteConfig in Frameworks */,
+				87A46A442F4C9B580053385A /* FirebaseMessaging in Frameworks */,
+				87A46A422F4C9B580053385A /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -34,6 +58,7 @@
 			children = (
 				879433572F37AB280084A2DD /* Calculator */,
 				879433562F37AB280084A2DD /* Products */,
+				87A46A3E2F4C99E60053385A /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +90,9 @@
 			);
 			name = Calculator;
 			packageProductDependencies = (
+				87A46A412F4C9B580053385A /* FirebaseFirestore */,
+				87A46A432F4C9B580053385A /* FirebaseMessaging */,
+				87A46A452F4C9B580053385A /* FirebaseRemoteConfig */,
 			);
 			productName = Calculator;
 			productReference = 879433552F37AB280084A2DD /* Calculator.app */;
@@ -94,6 +122,9 @@
 			);
 			mainGroup = 8794334C2F37AB280084A2DD;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				87A46A402F4C9B580053385A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 879433562F37AB280084A2DD /* Products */;
 			projectDirPath = "";
@@ -109,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A46A3F2F4C99E60053385A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +288,7 @@
 				DEVELOPMENT_TEAM = UAND697L6R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Calculator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,6 +317,7 @@
 				DEVELOPMENT_TEAM = UAND697L6R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Calculator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -324,6 +358,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		87A46A402F4C9B580053385A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		87A46A412F4C9B580053385A /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87A46A402F4C9B580053385A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		87A46A432F4C9B580053385A /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87A46A402F4C9B580053385A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		87A46A452F4C9B580053385A /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87A46A402F4C9B580053385A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8794334D2F37AB280084A2DD /* Project object */;
 }

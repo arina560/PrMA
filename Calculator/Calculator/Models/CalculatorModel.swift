@@ -9,6 +9,16 @@ import Foundation
 
 enum Operation {
     case add, subtract, multiply, divide, none
+    
+    var symbol: String {
+            switch self {
+            case .add: return "+"
+            case .subtract: return "-"
+            case .multiply: return "×"
+            case .divide: return "÷"
+            case .none: return ""
+            }
+        }
 }
 
 enum CalculatorError: Error {
@@ -25,6 +35,7 @@ class CalculatorModel: ObservableObject {
     private var lastResult: Double = 0
     
     @Published var displayValue: String = "0"
+    @Published var lastExpression: String = ""
     
     private func formatNumber(_ numberString: String) -> String{
         guard let number = Double(numberString) else {
@@ -86,15 +97,19 @@ class CalculatorModel: ObservableObject {
             print("Сохранили число: \(storedNumber)")
         }
 
-//        if currentOperation != .none && !shouldResetScreen {
-//            do{
-//                try calculate()
-//            } catch {
-//                currentNumber = "Error"
-//                shouldResetScreen = true
-//                return
-//            }
-//        }
+        if currentOperation != .none && !shouldResetScreen {
+            do {
+                try calculate()
+                if let number = Double(currentNumber) {
+                    storedNumber = number
+                }
+            } catch {
+                currentNumber = "Error"
+                displayValue = currentNumber
+                shouldResetScreen = true
+                return
+            }
+        }
         
         currentOperation = operation
         shouldResetScreen = true
